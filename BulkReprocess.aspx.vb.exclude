@@ -1,0 +1,308 @@
+﻿Imports System.Data.SqlClient
+Imports System.Data
+
+
+Partial Class BulkReprocess
+
+    Inherits System.Web.UI.Page
+    Dim cn As SqlConnection
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Session("user") = String.Empty
+        Session("role") = String.Empty
+        cn = New SqlConnection("data source=ISYSSERVER87\payit;initial catalog=payit;password=shareef;persist security info=True;user id=sa;workstation id=ISYSSERVER3;packet size=4096")
+
+
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim db As New Data.payitEntities()
+        Dim start As DateTime = "2016-10-24 15:24:00.190"
+        Dim endtime As DateTime = "2016-10-24 16:15:00.190"
+        Dim rows = (From a In db.ThirdParty_knet_trans Order By a.myid Descending Where a.udf2.Contains("-X") And (a.udf1.Contains("fail") Or a.udf1 Is Nothing) And a.knetprocess.Contains("CAPTURED") And a.tdatetime > start And a.tdatetime < endtime Select a.trackid).ToList()
+        Dim count As Integer
+        count = 0
+        Dim listcount As Integer
+        Dim Trackstring As String
+        listcount = 0
+        Dim lstOfString As List(Of String) = New List(Of String)
+
+        Dim Voidlist As List(Of String) =
+     New List(Of String)(New String() {"674741419336", "488679715337", "861532784228", "337195221219", "584966622161", "973752231836", "822731287914", "265717275179", "386736431163", "379287246865", "777269376213", "425844391632", "814687292935", "895875247267", "897516652987", "668652821612", "931232485887", "417987179974", "521636271867", "554529396948", "645255513216", "533676594857", "142637928327", "874946589556", "766673829976"})
+
+        For Each item As String In rows
+            lstOfString.Add(item)
+            Trackstring = lstOfString(listcount)
+            Trackstring = Trackstring + " | " + lstOfString(listcount).ToString()
+            If Voidlist.Contains(item) Then
+            Else
+                Reprocess(item)
+            End If
+            count += 1
+
+            If (count Mod 5 = 0) Or (count Mod 5 = 5) Then
+
+                ' Trackstring = Trackstring + " | " + lstOfString(listcount).ToString()
+                alert("Completed 5 Trackids " + Trackstring)
+                Trackstring = ""
+            End If
+
+        Next
+
+
+
+
+
+
+    End Sub
+    Public Sub alert(ByVal s As String)
+        Dim popupscript As String
+        popupscript = "<script language='javascript'>" & _
+                      "alertify.alert('" & s & "')" & _
+                      "</script>"
+        ClientScript.RegisterStartupScript(Page.GetType, "popupScript", popupscript)
+    End Sub
+    Public Sub Reprocess(ByVal trackIDC As String)
+      
+
+        Dim Service As String = String.Empty
+        Dim amount As String = String.Empty
+        Dim multipinamnt As String = String.Empty
+        Dim quantity As String = String.Empty
+        Dim mobileno As String = String.Empty
+        Dim t As String = "fail"
+
+        If Nothing Is t OrElse Not t.Equals("fail") Then 'FOR SUCCESS
+            'Dim serviceType As String = GetService(trackIDC)
+           
+
+        Else 'FOR FAIL
+            Dim result() As String = GetThirdPartyKnetTransStatus(trackIDC, Service, amount, multipinamnt, mobileno, quantity)
+            If result(1).ToLower.Equals("unknown") Then
+                updateThirdpartyServicenMobile(trackIDC)
+
+                alert("Your transction has been updated. Please Reprocess now..")
+            ElseIf result(0).ToLower.Equals("voided") Then
+                alert("Voided transactions cannot be Reprocessed..")
+                Exit Sub
+            Else
+                If Service.EndsWith("-O") Then
+                    If Not Nothing Is result AndAlso result.Length > 0 Then
+                      
+                    End If
+               
+                Else
+                    Try
+                        If validateTrackID(trackIDC) = True Then 'Already success
+                            alert("Transaction with this TrackID is already processed")
+                            Exit Sub
+                        Else 'Failed
+                            Dim ServiceProcessResult = ProcessService(trackIDC, Service)
+                            alert(ServiceProcessResult)
+                        End If
+                    Catch ex As Exception
+                        alert("Unable to process your request. Please try again later")
+                    End Try
+                End If
+            End If
+        End If
+    End Sub
+    Public Sub updateThirdpartyStatus(ByVal isysID As String, ByVal type As String)
+        Dim SqlUpdate As String
+        Dim retValue(3) As String
+
+        Try
+            If type = "" Then
+                SqlUpdate = "update [ThirdParty_knet_trans] set udf1=NULL where trackID='" & isysID & "'"
+            Else
+                SqlUpdate = "update [ThirdParty_knet_trans] set udf1='" & type & "' where trackID='" & isysID & "'"
+            End If
+
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand(SqlUpdate, cn)
+            If cn.State = ConnectionState.Closed Then
+                cn.Open()
+            End If
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+        End Try
+    End Sub
+
+    Public Function getTrackIDInfo(ByVal isysID As String) As String()
+        Dim SqlTrackID As String
+        Dim retValue(6) As String
+        SqlTrackID = "select udf2 ServiceCode,amt Amount,udf3 MobileNo,CASE WHEN CHARINDEX('|',udf4)>0 THEN SUBSTRING(udf4,CHARINDEX('|',udf4)+1,len(udf4)) " & _
+                     "ELSE amt END as Denomination,tdatetime,LastUpdateOn from [ThirdParty_knet_trans] where TrackID like '" & isysID & "%'"
+
+        Dim dsTrack As DataSet
+        dsTrack = New DataSet()
+        Dim da1 As New SqlDataAdapter(SqlTrackID, cn)
+
+        ' da = New SqlDataAdapter(SqlTrackID, cn)
+        da1.Fill(dsTrack, "d")
+        If Not dsTrack.Tables("d").Rows.Count > 0 Then
+            retValue(0) = "NODATA"
+        Else
+            retValue(0) = dsTrack.Tables("d").Rows(0).Item(0)
+            retValue(1) = dsTrack.Tables("d").Rows(0).Item(1)
+            retValue(2) = dsTrack.Tables("d").Rows(0).Item(2)
+            retValue(3) = dsTrack.Tables("d").Rows(0).Item(3)
+            retValue(3) = Math.Round(Convert.ToDecimal(retValue(3)), 3)
+            retValue(4) = dsTrack.Tables("d").Rows(0).Item(4)
+            retValue(5) = dsTrack.Tables("d").Rows(0).Item(5)
+            'retValue = False
+        End If
+        Return retValue
+    End Function
+    Private Function ProcessService(ByVal trackIDC As String, ByVal Service As String) As String
+        Dim ServiceResult As String = String.Empty
+        updateThirdpartyStatus(trackIDC, "")
+        Dim transInfo() As String = getTrackIDInfo(trackIDC)
+
+        If Not transInfo(0).Equals("NODATA") Then
+            Dim VWZObj As New VWZWebReference3.Service
+            Dim transResult = "ERROR"
+            If Service.ToUpper().EndsWith("-XR") Then
+                transResult = VWZObj.ProcessTransactionSupport(transInfo(0), transInfo(3), transInfo(1), transInfo(2), trackIDC, "XSmart", "XSmart")
+            Else
+                transResult = VWZObj.ProcessTransactionSupport(transInfo(0), -1, transInfo(3), transInfo(2), trackIDC, "XSmart", "XSmart")
+            End If
+            If Not transResult.StartsWith("ERROR") Then
+                updateThirdpartyStatus(trackIDC, "SuccessRI")
+
+                ServiceResult = "Your transction has been successfully processed"
+            Else
+                ServiceResult = "An error Occured while processing your request. Please try agan later"
+            End If
+        Else
+            ServiceResult = "No data found for the TrackID. Please provide a valid trackID."
+        End If
+        Return ServiceResult
+    End Function
+
+    Public Function validateTrackID(ByVal isysID As String) As Boolean
+        Dim SqlValidate As String
+        Dim retValue As Boolean
+        SqlValidate = "select ProcessTranDescription from PayitiSYS where isysid = " & isysID & " and ProcessTranDescription LIKE '%SUCCESS%'"
+
+        Dim dsValidate As DataSet
+        dsValidate = New DataSet()
+
+        Dim da = New SqlDataAdapter(SqlValidate, cn)
+        da.Fill(dsValidate, "det")
+        If dsValidate.Tables("det").Rows.Count > 0 Then
+            retValue = True
+        Else
+            retValue = False
+        End If
+        Return retValue
+    End Function
+    Public Sub updateThirdpartyServicenMobile(ByVal isysID As String)
+        Dim SqlTrackID As String
+        Dim SqlUpdate As String
+        Dim retValue(2) As String
+
+        Try
+            SqlTrackID = "select pr.ServiceCode,pr.MobileNo from PayItUserInfo_Restrictions pr LEFT JOIN ThirdParty_knet_trans tk ON pr.CID=tk.TId where TrackId like '" & isysID & "%'"
+
+            Dim dsTrack As DataSet
+            dsTrack = New DataSet()
+            Dim da1 As New SqlDataAdapter(SqlTrackID, cn)
+            da1.Fill(dsTrack, "d")
+            If dsTrack.Tables("d").Rows.Count > 0 Then
+
+                SqlUpdate = "update [ThirdParty_knet_trans] set udf2='" & dsTrack.Tables("d").Rows(0).Item(0) & "',udf3='" & dsTrack.Tables("d").Rows(0).Item(1) & "' where trackID='" & isysID & "'"
+                Dim cmd As SqlCommand
+                cmd = New SqlCommand(SqlUpdate, cn)
+                If cn.State = ConnectionState.Closed Then
+                    cn.Open()
+                End If
+                cmd.ExecuteNonQuery()
+            End If
+
+        Catch ex As Exception
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+        End Try
+    End Sub
+    Public Function GetThirdPartyKnetTransStatus(ByVal isysID As String, _
+                                                ByRef service As String, _
+                                                ByRef amount As String, _
+                                                ByRef multipinamnt As String, _
+                                                ByRef mobileno As String, _
+                                                ByRef quantity As String) As String()
+
+        Dim cmd As New SqlCommand("select isnull(udf1,'unprocessed'), isnull(udf2,'unknown'), ISNULL(udf3,'') Mobile, amt, CASE WHEN CHARINDEX('|',udf4)>0 THEN SUBSTRING(udf4,CHARINDEX('|',udf4)+1,len(udf4)) ELSE amt END as multipinamnt, CASE WHEN CHARINDEX('|',udf4)>0 THEN SUBSTRING(udf4,CHARINDEX('|',udf4)-1,len(udf4)) ELSE '1' END  as Quantity from [ThirdParty_knet_trans] where isysid like '" & isysID & "%'", cn)
+
+        Dim result(2) As String
+
+        If cn.State = ConnectionState.Closed Then cn.Open()
+
+        Using rdr As SqlDataReader = cmd.ExecuteReader
+            rdr.Read()
+
+            result(0) = rdr.GetString(0)
+            result(1) = rdr.GetString(1)
+            service = rdr.GetString(1)
+            mobileno = rdr.GetString(2)
+            amount = rdr.GetString(3)
+            multipinamnt = rdr.GetString(4)
+            quantity = rdr.GetString(5)
+
+            rdr.Close()
+        End Using
+
+        cmd = Nothing
+
+        Return result
+    End Function
+    Private Function GetService(ByVal isysID As String) As String
+        Dim cmd As New SqlCommand("select service from PayitiSYS where isysid = " & isysID, cn)
+
+        Dim result As String
+        If cn.State = ConnectionState.Closed Then cn.Open()
+
+        Using rdr As SqlDataReader = cmd.ExecuteReader
+            rdr.Read()
+            result = rdr.GetString(0)
+            rdr.Close()
+        End Using
+
+        cmd = Nothing
+        Return result
+    End Function
+
+    Public Function GetProcessDescription(ByVal isysID As String, Optional ByRef mobileNo As String = "") As String
+
+        Dim fromdate, todate As String
+        Dim result As String = String.Empty
+       
+        Dim _ctx As New Data.payitEntities
+        Dim row = (From d In _ctx.PayitiSYS Where d.IsysID = isysID Select d).FirstOrDefault()
+        If (row IsNot Nothing) Then
+            result = row.ProcessTranDescription
+            mobileNo = row.MobileNo
+        End If
+
+        'Dim cmd As New SqlCommand("select ProcessTranDescription, MobileNo from PayitiSYS where convert(datetime,trandate, 103) " & _
+        '                              " between convert(datetime,'" & fromdate & "', 103) and convert(datetime,'" & todate & "', 103)" & _
+        '                              " and isysid like '" & isysID & "%'", cn)
+
+        'If cn.State = ConnectionState.Closed Then cn.Open()
+        'Using rdr As SqlDataReader = cmd.ExecuteReader
+        '    rdr.Read()
+        '    result = rdr.GetString(0)
+        '    mobileNo = rdr.GetString(1)
+        '    rdr.Close()
+        'End Using
+        'cmd = Nothing
+
+        Return result
+    End Function
+
+End Class

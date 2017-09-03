@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SocialType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketsResult" type="tns:ArrayOfTicketsFeed" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTicketsFeed">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TicketsFeed" nillable="true" type="tns:TicketsFeed" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TicketsFeed">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageConfigID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PageName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeedBackType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualContent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentFromName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentFromID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReferenceID" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActualFeedDate" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReplyMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="referenceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SocialType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReplyMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReplyMessageResult" type="tns:TotalTicketsHelper" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TotalTicketsHelper">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketId" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageConfigID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReplyMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FetchDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReplyThread">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReferenceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SocialType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplyThreadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplyThreadResult" type="tns:ArrayOfFBComment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFBComment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FBComment" nillable="true" type="tns:FBComment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FBComment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Likecount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Commentid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Commentfromname" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Userlikes" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Commentcount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Commentfromid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fetchdate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageHeight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageWidth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Targetid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommentCreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveReply">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="referenceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="replymessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="appkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SocialType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveReplyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveReplyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReplyMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReplyMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetReplyMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReplyMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplyThreadSoapIn">
+    <wsdl:part name="parameters" element="tns:ReplyThread" />
+  </wsdl:message>
+  <wsdl:message name="ReplyThreadSoapOut">
+    <wsdl:part name="parameters" element="tns:ReplyThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveReplySoapIn">
+    <wsdl:part name="parameters" element="tns:SaveReply" />
+  </wsdl:message>
+  <wsdl:message name="SaveReplySoapOut">
+    <wsdl:part name="parameters" element="tns:SaveReplyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SocialFeedSoap">
+    <wsdl:operation name="GetTickets">
+      <wsdl:input message="tns:GetTicketsSoapIn" />
+      <wsdl:output message="tns:GetTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplyMessage">
+      <wsdl:input message="tns:GetReplyMessageSoapIn" />
+      <wsdl:output message="tns:GetReplyMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplyThread">
+      <wsdl:input message="tns:ReplyThreadSoapIn" />
+      <wsdl:output message="tns:ReplyThreadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveReply">
+      <wsdl:input message="tns:SaveReplySoapIn" />
+      <wsdl:output message="tns:SaveReplySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SocialFeedSoap" type="tns:SocialFeedSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTickets">
+      <soap:operation soapAction="http://tempuri.org/GetTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplyMessage">
+      <soap:operation soapAction="http://tempuri.org/GetReplyMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplyThread">
+      <soap:operation soapAction="http://tempuri.org/ReplyThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReply">
+      <soap:operation soapAction="http://tempuri.org/SaveReply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SocialFeedSoap12" type="tns:SocialFeedSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplyMessage">
+      <soap12:operation soapAction="http://tempuri.org/GetReplyMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplyThread">
+      <soap12:operation soapAction="http://tempuri.org/ReplyThread" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveReply">
+      <soap12:operation soapAction="http://tempuri.org/SaveReply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SocialFeed">
+    <wsdl:port name="SocialFeedSoap" binding="tns:SocialFeedSoap">
+      <soap:address location="http://192.168.11.194/SocialFeed/SocialFeed.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SocialFeedSoap12" binding="tns:SocialFeedSoap12">
+      <soap12:address location="http://192.168.11.194/SocialFeed/SocialFeed.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

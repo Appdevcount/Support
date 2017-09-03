@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactUs">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactUsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactUsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getArabicError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Error_En" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getArabicErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getArabicErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="reportProblem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="udidID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="reportProblemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportProblemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadCountries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loadCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadCountriesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trackID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUDID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="udid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUDIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertUDIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUDID_Restrictions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="udid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeviceUID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUDID_RestrictionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertUDID_RestrictionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID_UDID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayitUserInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfo_Restrictions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID_UDID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfo_RestrictionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayitUserInfo_RestrictionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfo_Restrictions_cid_SELECT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID_UDID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MOB" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayitUserInfo_Restrictions_cid_SELECTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayitUserInfo_Restrictions_cid_SELECTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="thirdParty_knet_trans_check_success_duplicates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cid_list" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="thirdParty_knet_trans_check_success_duplicatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="thirdParty_knet_trans_check_success_duplicatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransactionResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="refID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionResultForV3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="refID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionResultForV3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionResultForV3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessTransactionSupport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessTransactionSupportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessTransactionSupportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Services">
+        <s:complexType />
+      </s:element>
+      <s:element name="ServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServicesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Services2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Services2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Services2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trackID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="agent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PINResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBalanceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPINAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPINAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsPINAvailableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="civilID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="civilID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessPaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PINDenominationsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominationsForV3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominationsForV3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PINDenominationsForV3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominationsForV4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PINDenominationsForV4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PINDenominationsForV4Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentChannels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentChannelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentChannelsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentChannelsA6I3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentChannelsA6I3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentChannelsA6I3Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPaymentReference">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkPaymentReferenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkPaymentReferenceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="paymentUserReferenceUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trackID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="paymentUserReferenceUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentUserReferenceUpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Images">
+        <s:complexType />
+      </s:element>
+      <s:element name="ImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HtmlPages">
+        <s:complexType />
+      </s:element>
+      <s:element name="HtmlPagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HtmlPagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trackid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMobileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MailID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lang" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactUsSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactUs" />
+  </wsdl:message>
+  <wsdl:message name="ContactUsSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactUsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getArabicErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:getArabicError" />
+  </wsdl:message>
+  <wsdl:message name="getArabicErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:getArabicErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="reportProblemSoapIn">
+    <wsdl:part name="parameters" element="tns:reportProblem" />
+  </wsdl:message>
+  <wsdl:message name="reportProblemSoapOut">
+    <wsdl:part name="parameters" element="tns:reportProblemResponse" />
+  </wsdl:message>
+  <wsdl:message name="loadCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:loadCountries" />
+  </wsdl:message>
+  <wsdl:message name="loadCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:loadCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUDIDSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUDID" />
+  </wsdl:message>
+  <wsdl:message name="insertUDIDSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUDIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUDID_RestrictionsSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUDID_Restrictions" />
+  </wsdl:message>
+  <wsdl:message name="insertUDID_RestrictionsSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUDID_RestrictionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:PayitUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:PayitUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfo_RestrictionsSoapIn">
+    <wsdl:part name="parameters" element="tns:PayitUserInfo_Restrictions" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfo_RestrictionsSoapOut">
+    <wsdl:part name="parameters" element="tns:PayitUserInfo_RestrictionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfo_Restrictions_cid_SELECTSoapIn">
+    <wsdl:part name="parameters" element="tns:PayitUserInfo_Restrictions_cid_SELECT" />
+  </wsdl:message>
+  <wsdl:message name="PayitUserInfo_Restrictions_cid_SELECTSoapOut">
+    <wsdl:part name="parameters" element="tns:PayitUserInfo_Restrictions_cid_SELECTResponse" />
+  </wsdl:message>
+  <wsdl:message name="thirdParty_knet_trans_check_success_duplicatesSoapIn">
+    <wsdl:part name="parameters" element="tns:thirdParty_knet_trans_check_success_duplicates" />
+  </wsdl:message>
+  <wsdl:message name="thirdParty_knet_trans_check_success_duplicatesSoapOut">
+    <wsdl:part name="parameters" element="tns:thirdParty_knet_trans_check_success_duplicatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductListSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductList" />
+  </wsdl:message>
+  <wsdl:message name="ProductListSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionResult" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultForV3SoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionResultForV3" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultForV3SoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionResultForV3Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateAccount" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSupportSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessTransactionSupport" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSupportSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessTransactionSupportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:Services" />
+  </wsdl:message>
+  <wsdl:message name="ServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:ServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Services2SoapIn">
+    <wsdl:part name="parameters" element="tns:Services2" />
+  </wsdl:message>
+  <wsdl:message name="Services2SoapOut">
+    <wsdl:part name="parameters" element="tns:Services2Response" />
+  </wsdl:message>
+  <wsdl:message name="PINSoapIn">
+    <wsdl:part name="parameters" element="tns:PIN" />
+  </wsdl:message>
+  <wsdl:message name="PINSoapOut">
+    <wsdl:part name="parameters" element="tns:PINResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsPINAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:IsPINAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IsPINAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:IsPINAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPayment" />
+  </wsdl:message>
+  <wsdl:message name="QueryPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessPayment" />
+  </wsdl:message>
+  <wsdl:message name="ProcessPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsSoapIn">
+    <wsdl:part name="parameters" element="tns:PINDenominations" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsSoapOut">
+    <wsdl:part name="parameters" element="tns:PINDenominationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsForV3SoapIn">
+    <wsdl:part name="parameters" element="tns:PINDenominationsForV3" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsForV3SoapOut">
+    <wsdl:part name="parameters" element="tns:PINDenominationsForV3Response" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsForV4SoapIn">
+    <wsdl:part name="parameters" element="tns:PINDenominationsForV4" />
+  </wsdl:message>
+  <wsdl:message name="PINDenominationsForV4SoapOut">
+    <wsdl:part name="parameters" element="tns:PINDenominationsForV4Response" />
+  </wsdl:message>
+  <wsdl:message name="PaymentChannelsSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentChannels" />
+  </wsdl:message>
+  <wsdl:message name="PaymentChannelsSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentChannelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentChannelsA6I3SoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentChannelsA6I3" />
+  </wsdl:message>
+  <wsdl:message name="PaymentChannelsA6I3SoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentChannelsA6I3Response" />
+  </wsdl:message>
+  <wsdl:message name="checkPaymentReferenceSoapIn">
+    <wsdl:part name="parameters" element="tns:checkPaymentReference" />
+  </wsdl:message>
+  <wsdl:message name="checkPaymentReferenceSoapOut">
+    <wsdl:part name="parameters" element="tns:checkPaymentReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="paymentUserReferenceUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:paymentUserReferenceUpdate" />
+  </wsdl:message>
+  <wsdl:message name="paymentUserReferenceUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:paymentUserReferenceUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:Images" />
+  </wsdl:message>
+  <wsdl:message name="ImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:ImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HtmlPagesSoapIn">
+    <wsdl:part name="parameters" element="tns:HtmlPages" />
+  </wsdl:message>
+  <wsdl:message name="HtmlPagesSoapOut">
+    <wsdl:part name="parameters" element="tns:HtmlPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMobile" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactUs">
+      <wsdl:input message="tns:ContactUsSoapIn" />
+      <wsdl:output message="tns:ContactUsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getArabicError">
+      <wsdl:input message="tns:getArabicErrorSoapIn" />
+      <wsdl:output message="tns:getArabicErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="reportProblem">
+      <wsdl:input message="tns:reportProblemSoapIn" />
+      <wsdl:output message="tns:reportProblemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loadCountries">
+      <wsdl:input message="tns:loadCountriesSoapIn" />
+      <wsdl:output message="tns:loadCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <wsdl:input message="tns:UpdateUserInfoSoapIn" />
+      <wsdl:output message="tns:UpdateUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID">
+      <wsdl:input message="tns:insertUDIDSoapIn" />
+      <wsdl:output message="tns:insertUDIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID_Restrictions">
+      <wsdl:input message="tns:insertUDID_RestrictionsSoapIn" />
+      <wsdl:output message="tns:insertUDID_RestrictionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo">
+      <wsdl:input message="tns:PayitUserInfoSoapIn" />
+      <wsdl:output message="tns:PayitUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions">
+      <wsdl:input message="tns:PayitUserInfo_RestrictionsSoapIn" />
+      <wsdl:output message="tns:PayitUserInfo_RestrictionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions_cid_SELECT">
+      <wsdl:input message="tns:PayitUserInfo_Restrictions_cid_SELECTSoapIn" />
+      <wsdl:output message="tns:PayitUserInfo_Restrictions_cid_SELECTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="thirdParty_knet_trans_check_success_duplicates">
+      <wsdl:input message="tns:thirdParty_knet_trans_check_success_duplicatesSoapIn" />
+      <wsdl:output message="tns:thirdParty_knet_trans_check_success_duplicatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductList">
+      <wsdl:input message="tns:ProductListSoapIn" />
+      <wsdl:output message="tns:ProductListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <wsdl:input message="tns:TransactionResultSoapIn" />
+      <wsdl:output message="tns:TransactionResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResultForV3">
+      <wsdl:input message="tns:TransactionResultForV3SoapIn" />
+      <wsdl:output message="tns:TransactionResultForV3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <wsdl:input message="tns:ValidateAccountSoapIn" />
+      <wsdl:output message="tns:ValidateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <wsdl:input message="tns:ProcessTransactionSoapIn" />
+      <wsdl:output message="tns:ProcessTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransactionSupport">
+      <wsdl:input message="tns:ProcessTransactionSupportSoapIn" />
+      <wsdl:output message="tns:ProcessTransactionSupportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <wsdl:input message="tns:ServicesSoapIn" />
+      <wsdl:output message="tns:ServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Services2">
+      <wsdl:input message="tns:Services2SoapIn" />
+      <wsdl:output message="tns:Services2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PIN">
+      <wsdl:input message="tns:PINSoapIn" />
+      <wsdl:output message="tns:PINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="tns:GetBalanceSoapIn" />
+      <wsdl:output message="tns:GetBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPINAvailable">
+      <wsdl:input message="tns:IsPINAvailableSoapIn" />
+      <wsdl:output message="tns:IsPINAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPayment">
+      <wsdl:input message="tns:QueryPaymentSoapIn" />
+      <wsdl:output message="tns:QueryPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPayment">
+      <wsdl:input message="tns:ProcessPaymentSoapIn" />
+      <wsdl:output message="tns:ProcessPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominations">
+      <wsdl:input message="tns:PINDenominationsSoapIn" />
+      <wsdl:output message="tns:PINDenominationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV3">
+      <wsdl:input message="tns:PINDenominationsForV3SoapIn" />
+      <wsdl:output message="tns:PINDenominationsForV3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV4">
+      <wsdl:input message="tns:PINDenominationsForV4SoapIn" />
+      <wsdl:output message="tns:PINDenominationsForV4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannels">
+      <wsdl:input message="tns:PaymentChannelsSoapIn" />
+      <wsdl:output message="tns:PaymentChannelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannelsA6I3">
+      <wsdl:input message="tns:PaymentChannelsA6I3SoapIn" />
+      <wsdl:output message="tns:PaymentChannelsA6I3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPaymentReference">
+      <wsdl:input message="tns:checkPaymentReferenceSoapIn" />
+      <wsdl:output message="tns:checkPaymentReferenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="paymentUserReferenceUpdate">
+      <wsdl:input message="tns:paymentUserReferenceUpdateSoapIn" />
+      <wsdl:output message="tns:paymentUserReferenceUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Images">
+      <wsdl:input message="tns:ImagesSoapIn" />
+      <wsdl:output message="tns:ImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HtmlPages">
+      <wsdl:input message="tns:HtmlPagesSoapIn" />
+      <wsdl:output message="tns:HtmlPagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobile">
+      <wsdl:input message="tns:UpdateMobileSoapIn" />
+      <wsdl:output message="tns:UpdateMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactUs">
+      <soap:operation soapAction="http://tempuri.org/ContactUs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getArabicError">
+      <soap:operation soapAction="http://tempuri.org/getArabicError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportProblem">
+      <soap:operation soapAction="http://tempuri.org/reportProblem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadCountries">
+      <soap:operation soapAction="http://tempuri.org/loadCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID">
+      <soap:operation soapAction="http://tempuri.org/insertUDID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID_Restrictions">
+      <soap:operation soapAction="http://tempuri.org/insertUDID_Restrictions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo">
+      <soap:operation soapAction="http://tempuri.org/PayitUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions">
+      <soap:operation soapAction="http://tempuri.org/PayitUserInfo_Restrictions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions_cid_SELECT">
+      <soap:operation soapAction="http://tempuri.org/PayitUserInfo_Restrictions_cid_SELECT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="thirdParty_knet_trans_check_success_duplicates">
+      <soap:operation soapAction="http://tempuri.org/thirdParty_knet_trans_check_success_duplicates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductList">
+      <soap:operation soapAction="http://tempuri.org/ProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <soap:operation soapAction="http://tempuri.org/TransactionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResultForV3">
+      <soap:operation soapAction="http://tempuri.org/TransactionResultForV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <soap:operation soapAction="http://tempuri.org/ValidateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap:operation soapAction="http://tempuri.org/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransactionSupport">
+      <soap:operation soapAction="http://tempuri.org/ProcessTransactionSupport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <soap:operation soapAction="http://tempuri.org/Services" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services2">
+      <soap:operation soapAction="http://tempuri.org/Services2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PIN">
+      <soap:operation soapAction="http://tempuri.org/PIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap:operation soapAction="http://tempuri.org/GetBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPINAvailable">
+      <soap:operation soapAction="http://tempuri.org/IsPINAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPayment">
+      <soap:operation soapAction="http://tempuri.org/QueryPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPayment">
+      <soap:operation soapAction="http://tempuri.org/ProcessPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominations">
+      <soap:operation soapAction="http://tempuri.org/PINDenominations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV3">
+      <soap:operation soapAction="http://tempuri.org/PINDenominationsForV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV4">
+      <soap:operation soapAction="http://tempuri.org/PINDenominationsForV4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannels">
+      <soap:operation soapAction="http://tempuri.org/PaymentChannels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannelsA6I3">
+      <soap:operation soapAction="http://tempuri.org/PaymentChannelsA6I3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPaymentReference">
+      <soap:operation soapAction="http://tempuri.org/checkPaymentReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paymentUserReferenceUpdate">
+      <soap:operation soapAction="http://tempuri.org/paymentUserReferenceUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Images">
+      <soap:operation soapAction="http://tempuri.org/Images" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HtmlPages">
+      <soap:operation soapAction="http://tempuri.org/HtmlPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobile">
+      <soap:operation soapAction="http://tempuri.org/UpdateMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactUs">
+      <soap12:operation soapAction="http://tempuri.org/ContactUs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getArabicError">
+      <soap12:operation soapAction="http://tempuri.org/getArabicError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportProblem">
+      <soap12:operation soapAction="http://tempuri.org/reportProblem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadCountries">
+      <soap12:operation soapAction="http://tempuri.org/loadCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID">
+      <soap12:operation soapAction="http://tempuri.org/insertUDID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUDID_Restrictions">
+      <soap12:operation soapAction="http://tempuri.org/insertUDID_Restrictions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/PayitUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions">
+      <soap12:operation soapAction="http://tempuri.org/PayitUserInfo_Restrictions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayitUserInfo_Restrictions_cid_SELECT">
+      <soap12:operation soapAction="http://tempuri.org/PayitUserInfo_Restrictions_cid_SELECT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="thirdParty_knet_trans_check_success_duplicates">
+      <soap12:operation soapAction="http://tempuri.org/thirdParty_knet_trans_check_success_duplicates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductList">
+      <soap12:operation soapAction="http://tempuri.org/ProductList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <soap12:operation soapAction="http://tempuri.org/TransactionResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResultForV3">
+      <soap12:operation soapAction="http://tempuri.org/TransactionResultForV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <soap12:operation soapAction="http://tempuri.org/ValidateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap12:operation soapAction="http://tempuri.org/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransactionSupport">
+      <soap12:operation soapAction="http://tempuri.org/ProcessTransactionSupport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services">
+      <soap12:operation soapAction="http://tempuri.org/Services" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Services2">
+      <soap12:operation soapAction="http://tempuri.org/Services2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PIN">
+      <soap12:operation soapAction="http://tempuri.org/PIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap12:operation soapAction="http://tempuri.org/GetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPINAvailable">
+      <soap12:operation soapAction="http://tempuri.org/IsPINAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPayment">
+      <soap12:operation soapAction="http://tempuri.org/QueryPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPayment">
+      <soap12:operation soapAction="http://tempuri.org/ProcessPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominations">
+      <soap12:operation soapAction="http://tempuri.org/PINDenominations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV3">
+      <soap12:operation soapAction="http://tempuri.org/PINDenominationsForV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PINDenominationsForV4">
+      <soap12:operation soapAction="http://tempuri.org/PINDenominationsForV4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannels">
+      <soap12:operation soapAction="http://tempuri.org/PaymentChannels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentChannelsA6I3">
+      <soap12:operation soapAction="http://tempuri.org/PaymentChannelsA6I3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPaymentReference">
+      <soap12:operation soapAction="http://tempuri.org/checkPaymentReference" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="paymentUserReferenceUpdate">
+      <soap12:operation soapAction="http://tempuri.org/paymentUserReferenceUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Images">
+      <soap12:operation soapAction="http://tempuri.org/Images" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HtmlPages">
+      <soap12:operation soapAction="http://tempuri.org/HtmlPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMobile">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost/VWZWebserviceAPI/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost/VWZWebserviceAPI/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

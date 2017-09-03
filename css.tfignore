@@ -1,0 +1,3 @@
+﻿######################################
+# Ignore .css files in this folder and all its sub-folders
+*.css

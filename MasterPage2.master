@@ -1,0 +1,479 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage2.master.vb" Inherits="MasterPage2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link href="blackstyle.css" rel="stylesheet" type="text/css" />
+    <link href="Stylesheet/error.css" rel="stylesheet" />
+    <link href="Stylesheet/sidebar.css" rel="stylesheet" />
+    <link href="fonts/css/font-awesome.css" rel="stylesheet" />
+    <link href="Stylesheet/alertify.css" rel="stylesheet" />
+    <link href="Stylesheet/themes/default.css" rel="stylesheet" />
+    <link href="Stylesheet/bootstrap-datepicker3.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>Pay-It Support</title>
+    <!--[if lt IE 8]>
+   <style type="text/css">
+   li a {display:inline-block;}
+   li a {display:block;}
+   </style>
+   <![endif]-->
+   
+    <style type="text/css">
+        body
+        {
+            background-color: #22313E;
+        }
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+        .cal_KimTheme .ajax__calendar_container
+        {
+            background-color: #e2e2e2;
+            border: solid 1px #cccccc;
+            z-index: 1;
+            padding: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            direction: ltr;
+        }
+        .cal_KimTheme .ajax__calendar_header
+        {
+            background-color: #1e88b0;
+            margin-bottom: 4px;
+        }
+        .cal_KimTheme .ajax__calendar_title, .cal_KimTheme .ajax__calendar_next, .cal_KimTheme .ajax__calendar_prev
+        {
+            color: #004080;
+            padding-top: 3px;
+        }
+        .cal_KimTheme .ajax__calendar_body
+        {
+            background-color: #e9e9e9;
+            border: solid 1px #cccccc;
+
+        }
+        .cal_KimTheme .ajax__calendar_dayname
+        {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 4px;
+            margin-top: 2px;
+        }
+        .cal_KimTheme .ajax__calendar_day
+        {
+            text-align: center;
+        }
+        .cal_KimTheme .ajax__calendar_hover .ajax__calendar_day, .cal_KimTheme .ajax__calendar_hover .ajax__calendar_month, .cal_KimTheme .ajax__calendar_hover .ajax__calendar_year, .cal_KimTheme .ajax__calendar_active
+        {
+            background-color: #006dcc;
+            background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+            background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+            background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+            background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+            background-image: linear-gradient(top, #0088cc, #0044cc);
+            background-repeat: repeat-x;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+            border-color: #0044cc #0044cc #002a80;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        }
+        .cal_KimTheme .ajax__calendar_today
+        {
+            font-weight: bold;
+        }
+        .cal_KimTheme .ajax__calendar_other, .cal_KimTheme .ajax__calendar_hover .ajax__calendar_today, .cal_KimTheme .ajax__calendar_hover .ajax__calendar_title
+        {
+            color: #bbbbbb;
+        }
+        input[type="text"] {
+              color: darkslategray;
+              font-family: sans-serif;
+              box-shadow: none;
+            }
+            input[type="text"]:focus {
+              outline: none;
+            }
+        .style3
+        {
+            color: #FFFFFF;
+            font-size: x-small;
+        }
+        .style11
+        {
+            color: #65A100;
+        }
+        .style12
+        {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        .hiddencol
+        {
+            display: none;
+        }
+        input[type="text"]
+        {
+            color: darkslategray;
+            font-family: sans-serif;
+            box-shadow: none;
+        }
+        input[type="text"]:focus
+        {
+            outline: none;
+        }
+            .GridPager a, .GridPager span
+        {
+            display: block;
+            height: 18px;
+            width: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+        .GridPager a
+        {
+            color: #fff;
+            border: 1px solid #969696;
+        }
+        .GridPager span
+        {
+            background-color: #A1DCF2;
+            color: #000;
+            border: 1px solid #3AC0F2;
+        }
+        .spinner {
+          width: 40px;
+          height: 40px;
+
+          position: relative;
+          margin: 30px auto;
+        }
+
+        .double-bounce1, .double-bounce2 {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: #fff;
+          opacity: 0.6;
+          position: absolute;
+          top: 0;
+          left: 0;
+  
+          -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+          animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+
+        .double-bounce2 {
+          -webkit-animation-delay: -1.0s;
+          animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-bounce {
+          0%, 100% { -webkit-transform: scale(0.0) }
+          50% { -webkit-transform: scale(1.0) }
+        }
+
+        @keyframes sk-bounce {
+          0%, 100% { 
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+          } 50% { 
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+          }
+        }
+    </style>
+        </style>
+
+    <script type="text/javascript"> 
+   function CurrentDateShowing(e)  
+      { 
+             if (!e.get_selectedDate() || !e.get_element().value) 
+                        e._selectedDate = (new Date()).getDateOnly(); 
+      }     
+    </script>
+
+</head>
+<body style="background-repeat: repeat-x">
+
+    <div class="container">
+        <div class="sidebar-menu">
+            <header class="logo" style="color: aqua"> <p>Og Money KW</p><%--<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"><img id="logo" src="images/logoIsys.png" width="50" alt="Logo"/> </a>--%>  </header>
+            <div style="border-top: 1px solid rgba(69, 74, 84, 0.7)"></div>
+            <div class="menu">
+                <% If Session("role") = "thirdparty" Then userVisible.Visible = False%>            
+                <% If Session("role") = "thirdparty" Then Divpayment.Visible = False%>            
+                <% If Session("user") = "Alghanim" Then userVisible.Visible = False%>
+                <% If Session("user") = "Alghanim" Then charitydiv.Visible = False%>
+                <% If Session("user") <> "Shareef" Then usersA.Visible = False%>
+                <% If Session("user") <> "zain" Then zainVisible.Visible = False %>
+                <% If Session("user") <> "zain" Then zainVisible1.Visible = False %>
+                <% If Session("user") = "zain" Then charitydiv.Visible = False %>
+            
+                <ul id="menu">
+                    <li id="menu-home"><a href="#"><i class="fa fa-user"></i><span style="position: relative;">Welcome
+                        <asp:Label runat="server" Font-Bold="true" ID="Label2"></asp:Label></span></a></li>
+                    <li></li>
+
+                    <li id ="zainVisible" runat="server"><a href="OgMoneySummary.aspx"><i class="fa fa-circle-o"></i>OgMoney Summary</a></li>
+                    <li id ="zainVisible1" runat="server"><a href="DealerTransactions.aspx"><i class="fa fa-circle-o"></i>Dealer Summary</a></li>
+                    <div id="userVisible" runat="server">
+                        
+                    <li><a href="#">InternationalTopUp <i class="fa fa-angle-right" style="left: 8%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="IntlTopUpComplaints.aspx"><i class="fa fa-circle-o"></i>PlaceComplaint</a></li>
+                            <li><a href="UpdateComplaint.aspx"><i class="fa fa-circle-o"></i>UpateComplaint</a></li>
+                            <li><a href="reprocess.aspx"><i class="fa fa-circle-o"></i>Reprocess</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Local Transactions <i class="fa fa-angle-right" style="left: 8%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="LocalTopUp.aspx"><i class="fa fa-circle-o"></i>Success</a></li>
+                            <li><a href="ServiceTransactions.aspx"><i class="fa fa-circle-o"></i>Failed</a></li>
+                            <li><a href="LocalTopUp.aspx?type=fail"><i class="fa fa-circle-o"></i>Payment</a></li>
+                            <li><a href="QuickPayTransaction.aspx"><i class="fa fa-circle-o"></i>Quickpay</a></li>
+                            <li><a href="refundTransactions.aspx"><i class="fa fa-circle-o"></i>Refunds</a></li>
+                            <li><a href="Complaints_new.aspx"><i class="fa fa-circle-o"></i>Complaints</a></li>
+                            <li><a href="EnetSupport.aspx"><i class="fa fa-circle-o"></i>Particular</a></li>
+                            <li><a href="SummaryReport.aspx"><i class="fa fa-circle-o"></i>Summary</a></li>
+                            <li><a href="ZainPrepaidSummary.aspx"><i class="fa fa-circle-o"></i>Service Summary</a></li>
+                            <li><a href="VendorSummary.aspx"><i class="fa fa-circle-o"></i>Vendor Summary</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">PINS <i class="fa fa-angle-right" style="left: 76.5%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="UploadPINS.aspx"><i class="fa fa-circle-o"></i>Upload PINS</a></li>
+                            <li><a href="uploadPINAdmin.aspx"><i class="fa fa-circle-o"></i>Approve PINS</a></li>
+                            <li><a href="PINHistory.aspx"><i class="fa fa-circle-o"></i>PINS History</a></li>
+                            <li><a href="MConnectPinFetch.aspx"><i class="fa fa-circle-o"></i>MConnect PINS</a></li>
+                            <li><a href="PINPriority.aspx"><i class="fa fa-circle-o"></i>PIN Priority</a></li>
+                            <li><a href="PinDenominations.aspx"><i class="fa fa-circle-o"></i>PIN Denominations</a></li>
+                            <li><a href="PinStock.aspx"><i class="fa fa-circle-o"></i>PIN StockReturn</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Stock Balance <i class="fa fa-angle-right" style="left: 31%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="Balance.aspx"><i class="fa fa-circle-o"></i>Check Balance</a></li>
+                          
+                            <li><a href="Balance.aspx?type=add"><i class="fa fa-circle-o"></i>Add Balance</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Finance <i class="fa fa-angle-right" style="left: 60%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="KnetReport.aspx"><i class="fa fa-circle-o"></i>PaymentReport</a></li>
+                            <li><a href="MerchantTransaction.aspx"><i class="fa fa-circle-o"></i>MerchantSummary</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Business Rules <i class="fa fa-angle-right" style="left: 23%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="FraudRules.aspx"><i class="fa fa-circle-o"></i>Fraud Rules</a></li>
+                            <li><a href="FraudList.aspx"><i class="fa fa-circle-o"></i>Fraud Control</a></li>
+                            <li><a href="Validations.aspx"><i class="fa fa-circle-o"></i>Validations</a></li>
+                            <li><a href="ServiceValidations.aspx"><i class="fa fa-circle-o"></i>Service Validations</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Offers & Greetings<i class="fa fa-angle-right" style="left: 8%; position: relative;"></i>
+                    </a>
+                        <ul class="treeview-menu">
+                            <li><a href="offers.aspx"><i class="fa fa-circle-o"></i>Offers</a></li>
+                            <li><a href="pushnotif.aspx"><i class="fa fa-circle-o"></i>Push Notification</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <span>Category & Services</span>
+                            <i class="fa fa-angle-right" style="left: 0%; position: relative;"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="Categories.aspx"><i class="fa fa-circle-o"></i>Categories</a></li>
+                            <li><a href="CatServices.aspx"><i class="fa fa-circle-o"></i>Services</a></li>
+                            <li id="Li4" runat="server"><a href="AppSettings.aspx"><i class="fa fa-circle-o"></i>AppUserServices</a></li>
+                            <li><a href="CatServConfig.aspx"><i class="fa fa-circle-o"></i>CategoryServiceConfig</a></li>
+                            <li id="Li2" runat="server"><a href="AppCategoriesSettings.aspx"><i class="fa fa-circle-o"></i>AppUserCategories</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="ServiceStatus.aspx">Service Status</a> </li>
+                    <li><a href="#">Payment & Services <i class="fa fa-angle-right" style="left: 2%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="PaymentChannels.aspx"><i class="fa fa-circle-o"></i>PaymentChannels</a></li>
+                            <li><a href="PaymentChannelsToServices.aspx"><i class="fa fa-circle-o"></i>PaymentsToServices</a></li>
+                            <li><a href="PaymentChannelTunnels.aspx"><i class="fa fa-circle-o"></i>PaymentTunnels</a></li>
+                            <li><a href="ServicePaymentTunnels.aspx"><i class="fa fa-circle-o"></i>ServicePaymentTunnels</a></li>
+                            <li id="Li5" runat="server"><a href="AppPaymentSettings.aspx"><i class="fa fa-circle-o"></i>AppUserPayments</a></li>
+                            <li><a href="commissionServices.aspx"><i class="fa fa-circle-o"></i>PaymentCommissions</a></li>
+                            <li><a href="Services.aspx"><i class="fa fa-circle-o"></i>PINServices</a></li>
+                            <li><a href="countryStatus.aspx"><i class="fa fa-circle-o"></i>Countries Status</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="#"><span style="position: relative;">Zakat</span><span class="fa fa-angle-right" style="left: 75%; position: relative;"></span></a>
+                        <ul>
+                            <li><a href="zakatprojects.aspx"><i class="fa fa-circle-o"></i>Zakat Projects</a></li>
+                             <li><a href="ZakatSubProjects.aspx"><i class="fa fa-circle-o"></i>Zakat Sub Projects</a></li>
+                            <li><a href="zakatprojectstrans.aspx"><i class="fa fa-circle-o"></i>Zakat Transactions</a></li>
+                            <li><a href="zakatSummary.aspx"><i class="fa fa-circle-o"></i>Zakat Summary</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">More <i class="fa fa-angle-right" style="left: 75%; position: relative;"></i></a>
+                        <ul>
+                            <li><a href="translations.aspx"><i class="fa fa-circle-o"></i>Translations</a></li>
+                            <li><a href="commission.aspx"><i class="fa fa-circle-o"></i>Commission & Control</a></li>
+                            
+                            <div id="usersA" runat="server">
+                                <li id="Li3" runat="server"><a href="addusers.aspx"><i class="fa fa-circle-o"></i>Users</a></li>
+                            </div>
+                            
+                        </ul>
+                    </li>
+                    <div id="kycmenu" runat="server">
+                        <li><a href="#"><span style="position: relative;">KYC</span><span class="fa fa-angle-right" style="left: 75%; position: relative;"></span></a>
+                        <ul>
+                          <%--  <li><a href="KYCTypes.aspx"><i class="fa fa-circle-o"></i>KYC Types</a></li>--%>
+                            <li><a href="RatingRules.aspx"><i class="fa fa-circle-o"></i>Rating Rules</a></li>
+                            <li><a href="RatingValidations.aspx"><i class="fa fa-circle-o"></i>Rating Validations</a></li>
+                           <%-- <li><a href="PayitServicesKYCTypes.aspx"><i class="fa fa-circle-o"></i>PayitServices KYCTypes</a></li>
+                            <li><a href="PayitServiceUserKYCs.aspx"><i class="fa fa-circle-o"></i>PayitServices UserKYC</a></li>--%>
+                            <li><a href="UserTransactions.aspx"><i class="fa fa-circle-o"></i>User Transactions</a></li>
+                            <li><a href="UserFavorites.aspx"><i class="fa fa-circle-o"></i>User Favorites</a></li>
+                        </ul>
+                    </li>
+                    </div>
+                    </div>
+                    <div id="charitydiv" runat="server">
+                        <li><a href="#"><span style="position: relative;">Charity</span><span class="fa fa-angle-right" style="left: 69%; position: relative;"></span></a>
+                            <ul>
+                                <li><a href="alRahmaCharity.aspx"><i class="fa fa-circle-o"></i>Charity Projects</a></li>
+
+                                 <li><a href="CharitySubProjects.aspx"><i class="fa fa-circle-o"></i>Charity Sub Projects</a></li>
+
+                                <li><a href="alRahmaTrans.aspx"><i class="fa fa-circle-o"></i>Charity Transactions</a></li>
+
+                                <li><a href="alRahmaSummary.aspx"><i class="fa fa-circle-o"></i>Charity Summary</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div id="Divpayment"  runat="server">
+                        <li><a href="#"><span style="position: relative;">Alghanim Details</span><span class="fa fa-angle-right" style="left: 22%; position: relative;"></span></a>
+                            <ul>
+                                <li><a href="PaymentTransactions.aspx"><i class="fa fa-circle-o"></i>Payment Transactions</a></li>
+
+                                <li><a href="PaymentsSummary.aspx"><i class="fa fa-circle-o"></i>Payment Summary</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    
+                    <li id="Li1"><a href="Logout.aspx"><i class="fa fa-lock text-danger"></i><span style="position: relative;">Logout</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <form id="form1" runat="server">
+    <!-- main table -->
+    <table width="960" border="0" align="center">
+        <tr>
+            <td width="auto" height="auto" align="left" valign="top"  bgcolor="#22313E">
+                <img style="margin-left:300px;vertical-align: text-bottom;" src="assets/images/OgMoneyKW.png" height="42" width="42"  alt="Og Money KW" />
+                <asp:Label ID="Label1" runat="server" Font-Bold="True"
+                    Font-Italic="False" Font-Size="42px" ForeColor="#ffffff"
+                    Text=" OG MONEY KW"></asp:Label>
+                <%If Session("user") = "h.salam" Then lblSalam.Visible = True %>
+                <br /> <asp:Label ID="lblSalam" style="margin-left:300px" Visible ="false" ForeColor="White" runat="server">Thek hai na bhai?</asp:Label>
+                <asp:Label ID="Label3" runat="server" Font-Bold="False" Font-Names="Pristina" Font-Size="Large"
+                    ForeColor="White"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Font-Bold="False" Font-Names="Pristina" Font-Size="Large"
+                    ForeColor="White"></asp:Label>
+               
+            </td>
+        </tr>
+        <tr>
+            <td width="900" style="vertical-align:top;">
+                <!-- Content and Menu table -->
+                <table style="background-repeat: no-repeat;">
+                    <tr>
+                        <td width="150" valign="top">
+                            <ul id="mendu">
+                            </ul>
+                        </td>
+                        <td width="800" valign="top">
+                            <!-- content table -->
+                            <table width="100%" height="407" border="0">
+                                <tr>
+                                    <td valign="top" align="center">
+                                        <table width="100%" height="407" border="0" style="text-align: center">
+                                            <tr>
+                                                <td valign="top" align="center">
+                                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                    </asp:ContentPlaceHolder>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- content table ends-->
+                        </td>
+                    </tr>
+                </table>
+                <!--Menu and content table ends-->
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">
+                <hr /><p class="style3 style11"
+                    style="color: #FFFFFF">
+                    Designed by <span class="style12"><a href="http://oneglobal.co" onmouseover="this.style.color='#fff'"
+                        onmouseout="this.style.color='#000'" style="color: black; text-decoration: none">
+                        OneGlobal</a></span>. <a href="#" onmouseover="this.style.color='#000'"
+                            onmouseout="this.style.color='#fff'" style="color: #FFFFFF; text-decoration: none">All
+                            © rights reserved. <%=DateTime.Now.Year %></a></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <!-- main table ends-->
+    </form>
+   </div>
+    <script defer="defer" src="Scripts/alertify.js" type="text/javascript"></script>
+    <script defer="defer" src="Scripts/jQuery-1.11.3.js" type="text/javascript"></script>
+    <script defer="defer" src="Scripts/main.js" type="text/javascript"></script>
+    <script defer="defer" src="menu.js" type="text/javascript"></script>
+    <script defer="defer" src="Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
+</body>
+</html>

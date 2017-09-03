@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="loadCountries">
+        <s:complexType />
+      </s:element>
+      <s:element name="loadCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loadCountriesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateMobileNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateMobileNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateMobileNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMobileInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMobileInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMobileInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTopupInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actualamt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="refid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTopupInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTopupInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="refID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="loadCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:loadCountries" />
+  </wsdl:message>
+  <wsdl:message name="loadCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:loadCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMobileNoSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateMobileNo" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMobileNoSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateMobileNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMobileInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getMobileInfo" />
+  </wsdl:message>
+  <wsdl:message name="getMobileInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getMobileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTopupInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getTopupInfo" />
+  </wsdl:message>
+  <wsdl:message name="getTopupInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getTopupInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionResult" />
+  </wsdl:message>
+  <wsdl:message name="TransactionResultSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionResultResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="loadCountries">
+      <wsdl:input message="tns:loadCountriesSoapIn" />
+      <wsdl:output message="tns:loadCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNo">
+      <wsdl:input message="tns:ValidateMobileNoSoapIn" />
+      <wsdl:output message="tns:ValidateMobileNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMobileInfo">
+      <wsdl:input message="tns:getMobileInfoSoapIn" />
+      <wsdl:output message="tns:getMobileInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTopupInfo">
+      <wsdl:input message="tns:getTopupInfoSoapIn" />
+      <wsdl:output message="tns:getTopupInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <wsdl:input message="tns:TransactionResultSoapIn" />
+      <wsdl:output message="tns:TransactionResultSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="loadCountries">
+      <soap:operation soapAction="http://tempuri.org/loadCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNo">
+      <soap:operation soapAction="http://tempuri.org/ValidateMobileNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMobileInfo">
+      <soap:operation soapAction="http://tempuri.org/getMobileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopupInfo">
+      <soap:operation soapAction="http://tempuri.org/getTopupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <soap:operation soapAction="http://tempuri.org/TransactionResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="loadCountries">
+      <soap12:operation soapAction="http://tempuri.org/loadCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNo">
+      <soap12:operation soapAction="http://tempuri.org/ValidateMobileNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMobileInfo">
+      <soap12:operation soapAction="http://tempuri.org/getMobileInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopupInfo">
+      <soap12:operation soapAction="http://tempuri.org/getTopupInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionResult">
+      <soap12:operation soapAction="http://tempuri.org/TransactionResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://192.168.1.11/KnetCompatableIntalTopupAPI/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://192.168.1.11/KnetCompatableIntalTopupAPI/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

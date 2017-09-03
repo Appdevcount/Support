@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd0" filename="PayitWalletService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd1" filename="PayitWalletService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd2" filename="PayitWalletService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd3" filename="PayitWalletService2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd4" filename="PayitWalletService3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd5" filename="PayitWalletService4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?wsdl" filename="PayitWalletService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?disco" filename="PayitWalletService.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayitWallet.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+  <xs:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+  <xs:complexType name="InputOfWalletLogintBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletLogin" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q1:WalletLogin" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfWalletLogintBJVWScx" nillable="true" type="tns:InputOfWalletLogintBJVWScx" />
+  <xs:complexType name="CommonInputParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apppassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="appusername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceuniqueid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="os" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommonInputParams" nillable="true" type="tns:CommonInputParams" />
+  <xs:complexType name="SecureHash">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="SecureHash" nillable="true" type="tns:SecureHash" />
+  <xs:complexType name="DTOOfWalletLoginDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletLoginDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q2:WalletLoginDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfWalletLoginDTO3xwAbAl3" nillable="true" type="tns:DTOOfWalletLoginDTO3xwAbAl3" />
+  <xs:complexType name="Status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="info1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="info2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="statuscode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="statusdescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="translations" nillable="true" type="tns:Translations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="Translations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="languagecode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sourcetext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="translatedtext" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Translations" nillable="true" type="tns:Translations" />
+  <xs:complexType name="InputOfWalletProfiletBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletProfile" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q3:WalletProfile" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfWalletProfiletBJVWScx" nillable="true" type="tns:InputOfWalletProfiletBJVWScx" />
+  <xs:complexType name="DTOOfWalletProfileDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletProfileDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q4:WalletProfileDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfWalletProfileDTO3xwAbAl3" nillable="true" type="tns:DTOOfWalletProfileDTO3xwAbAl3" />
+  <xs:complexType name="InputOfVerifyUsertBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="VerifyUser" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q5:VerifyUser" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfVerifyUsertBJVWScx" nillable="true" type="tns:InputOfVerifyUsertBJVWScx" />
+  <xs:complexType name="DTOOfVerifyUserDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="VerifyUserDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q6:VerifyUserDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfVerifyUserDTO3xwAbAl3" nillable="true" type="tns:DTOOfVerifyUserDTO3xwAbAl3" />
+  <xs:complexType name="InputOfCreditTransactionstBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CreditTransactions" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q7:CreditTransactions" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfCreditTransactionstBJVWScx" nillable="true" type="tns:InputOfCreditTransactionstBJVWScx" />
+  <xs:complexType name="DTOOfCreditTransactionsDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CreditTransactionsDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q8:CreditTransactionsDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfCreditTransactionsDTO3xwAbAl3" nillable="true" type="tns:DTOOfCreditTransactionsDTO3xwAbAl3" />
+  <xs:complexType name="InputOfDebitTransactionstBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DebitTransactions" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q9:DebitTransactions" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfDebitTransactionstBJVWScx" nillable="true" type="tns:InputOfDebitTransactionstBJVWScx" />
+  <xs:complexType name="DTOOfDebitTransactionsDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DebitTransactionsDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q10:DebitTransactionsDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfDebitTransactionsDTO3xwAbAl3" nillable="true" type="tns:DTOOfDebitTransactionsDTO3xwAbAl3" />
+  <xs:complexType name="InputOfTransactionHistorytBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TransactionHistory" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q11:TransactionHistory" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfTransactionHistorytBJVWScx" nillable="true" type="tns:InputOfTransactionHistorytBJVWScx" />
+  <xs:complexType name="DTOOfTransactionHistoryDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TransactionHistoryDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q12:TransactionHistoryDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfTransactionHistoryDTO3xwAbAl3" nillable="true" type="tns:DTOOfTransactionHistoryDTO3xwAbAl3" />
+  <xs:complexType name="InputOfWalletAccountstBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletAccounts" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q13:WalletAccounts" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfWalletAccountstBJVWScx" nillable="true" type="tns:InputOfWalletAccountstBJVWScx" />
+  <xs:complexType name="DTOOfWalletAccountsDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="WalletAccountsDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q14:WalletAccountsDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfWalletAccountsDTO3xwAbAl3" nillable="true" type="tns:DTOOfWalletAccountsDTO3xwAbAl3" />
+  <xs:complexType name="InputOfSaveKYCtBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SaveKYC" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q15:SaveKYC" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfSaveKYCtBJVWScx" nillable="true" type="tns:InputOfSaveKYCtBJVWScx" />
+  <xs:complexType name="DTOOfSaveKYCDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SaveKYCDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q16:SaveKYCDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfSaveKYCDTO3xwAbAl3" nillable="true" type="tns:DTOOfSaveKYCDTO3xwAbAl3" />
+  <xs:complexType name="InputOfGetProfileInfotBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GetProfileInfo" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q17:GetProfileInfo" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfGetProfileInfotBJVWScx" nillable="true" type="tns:InputOfGetProfileInfotBJVWScx" />
+  <xs:complexType name="DTOOfGetProfileInfoDTO3xwAbAl3">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DTOOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GetProfileInfoDTO" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="objname" nillable="true" type="xs:string" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" minOccurs="0" name="response" nillable="true" type="q18:GetProfileInfoDTO" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOOfGetProfileInfoDTO3xwAbAl3" nillable="true" type="tns:DTOOfGetProfileInfoDTO3xwAbAl3" />
+  <xs:complexType name="InputOfGetTransactionsByWalletCodetBJVWScx">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="InputOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="GetTransactionsByWalletCode" Namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" minOccurs="0" name="input" nillable="true" type="q19:GetTransactionsByWalletCode" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:CommonInputParams" />
+      <xs:element minOccurs="0" name="secure" nillable="true" type="tns:SecureHash" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputOfGetTransactionsByWalletCodetBJVWScx" nillable="true" type="tns:InputOfGetTransactionsByWalletCodetBJVWScx" />
+</xs:schema>

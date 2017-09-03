@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBalanceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRechargeStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRechargeStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRechargeStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostpaidRecharge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSYSID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="operatorOrderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostpaidRechargeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostpaidRechargeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="operatorOrderID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrepaidRecharge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iSYSID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="operatorOrderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrepaidRechargeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrepaidRechargeResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="operatorOrderID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRechargeStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRechargeStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetRechargeStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRechargeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceType" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostpaidRechargeSoapIn">
+    <wsdl:part name="parameters" element="tns:PostpaidRecharge" />
+  </wsdl:message>
+  <wsdl:message name="PostpaidRechargeSoapOut">
+    <wsdl:part name="parameters" element="tns:PostpaidRechargeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrepaidRechargeSoapIn">
+    <wsdl:part name="parameters" element="tns:PrepaidRecharge" />
+  </wsdl:message>
+  <wsdl:message name="PrepaidRechargeSoapOut">
+    <wsdl:part name="parameters" element="tns:PrepaidRechargeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Ooredoo_KuwaitSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input message="tns:GetBalanceSoapIn" />
+      <wsdl:output message="tns:GetBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRechargeStatus">
+      <wsdl:input message="tns:GetRechargeStatusSoapIn" />
+      <wsdl:output message="tns:GetRechargeStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceType">
+      <wsdl:input message="tns:GetServiceTypeSoapIn" />
+      <wsdl:output message="tns:GetServiceTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostpaidRecharge">
+      <wsdl:input message="tns:PostpaidRechargeSoapIn" />
+      <wsdl:output message="tns:PostpaidRechargeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrepaidRecharge">
+      <wsdl:input message="tns:PrepaidRechargeSoapIn" />
+      <wsdl:output message="tns:PrepaidRechargeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Ooredoo_KuwaitSoap" type="tns:Ooredoo_KuwaitSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap:operation soapAction="http://tempuri.org/GetBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRechargeStatus">
+      <soap:operation soapAction="http://tempuri.org/GetRechargeStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceType">
+      <soap:operation soapAction="http://tempuri.org/GetServiceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostpaidRecharge">
+      <soap:operation soapAction="http://tempuri.org/PostpaidRecharge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrepaidRecharge">
+      <soap:operation soapAction="http://tempuri.org/PrepaidRecharge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Ooredoo_KuwaitSoap12" type="tns:Ooredoo_KuwaitSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap12:operation soapAction="http://tempuri.org/GetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRechargeStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetRechargeStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceType">
+      <soap12:operation soapAction="http://tempuri.org/GetServiceType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostpaidRecharge">
+      <soap12:operation soapAction="http://tempuri.org/PostpaidRecharge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrepaidRecharge">
+      <soap12:operation soapAction="http://tempuri.org/PrepaidRecharge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ooredoo_Kuwait">
+    <wsdl:port name="Ooredoo_KuwaitSoap" binding="tns:Ooredoo_KuwaitSoap">
+      <soap:address location="http://192.168.1.11/isysPaymentAPI/Ooredoo_Kuwait.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Ooredoo_KuwaitSoap12" binding="tns:Ooredoo_KuwaitSoap12">
+      <soap12:address location="http://192.168.1.11/isysPaymentAPI/Ooredoo_Kuwait.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

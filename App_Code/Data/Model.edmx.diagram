@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="54c81b55fd3b43c5a5df113ca84f7197" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="payitModel.AlrahmaCharity" Width="1.5" PointX="12.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.AlrahmaCharityTransaction" Width="1.5" PointX="15" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.CharityUserServiceConfig" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.CMSUser" Width="1.5" PointX="7.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.Denomination" Width="1.5" PointX="13" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.DummyPIN" Width="1.5" PointX="15.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.EnetService" Width="1.5" PointX="15.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.LogTrace" Width="1.5" PointX="9.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.OperatorsCredit" Width="1.5" PointX="15.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.OperatorsCreditHistory" Width="1.5" PointX="13" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitCategory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItCCLogin" Width="1.5" PointX="13.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItCCTran" Width="1.5" PointX="15.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitCommission" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitComplaint" Width="1.5" PointX="10.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.payitcomplaintstrack" Width="1.5" PointX="13" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItCountry" Width="1.5" PointX="2.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitiSY" Width="1.5" PointX="10.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitService" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitServicesCategory" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitServicesConfig" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitServicesPaymentsCommission" Width="1.5" PointX="4.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitUDID" Width="1.5" PointX="6.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitUDID_Restrictions" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItUserInfo" Width="1.5" PointX="17.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItUserInfo_Restrictions" Width="1.5" PointX="17.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayItUserRestriction" Width="1.5" PointX="17.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PayitUserServiceCategory" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PaymentChannel" Width="1.5" PointX="17.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PIN" Width="1.5" PointX="17.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PinsAlert" Width="1.5" PointX="17.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.Promo" Width="1.5" PointX="13.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.PushNotificationMessage" Width="1.5" PointX="19.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.Service" Width="1.5" PointX="10.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ServicesAndPayment" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ServicesPaymentsCommission" Width="1.5" PointX="8" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.SMSPIN" Width="1.5" PointX="19.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.StockDenomination" Width="1.5" PointX="10" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.StockMConnect" Width="1.5" PointX="6.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.StockOrder" Width="1.5" PointX="19.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.StockRepository" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.StockRequestResponse" Width="1.5" PointX="8.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ThirdParty_knet_trans" Width="1.5" PointX="10.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ThirdParty_knet_trans_20150219" Width="1.5" PointX="19.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ThirdParty_knet_trans_20150319" Width="1.5" PointX="19.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ThirdParty_knet_trans_20150518" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ThirdParty_knet_trans20150422" Width="1.5" PointX="21.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.Ticket" Width="1.5" PointX="21.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.topup_trans" Width="1.5" PointX="21.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.Translation" Width="1.5" PointX="21.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.UpdateUserInfo" Width="1.5" PointX="21.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.user" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ZakatProject" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.ZakatProjectsTransaction" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.balance" Width="1.5" PointX="23.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.topuprate" Width="1.5" PointX="23.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="payitModel.topupratesnew" Width="1.5" PointX="23.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="payitModel.FK_AlrahmaCharityTransactions_AlrahmaCharity" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_Denominations_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_OperatorsCreditHistory_PayitiSYS" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitServicesCategories_PayitCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK__payitcomp__Compl__1514E246" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitServicesCategories_PayitServices" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitServicesConfig_PayitServices" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitUserServiceCategories_PayitServicesCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitUDID_Restrictions_PayitUDID_Restrictions2" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_PayitUserServiceCategories_users" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_ServicesPaymentsCommissions_ServicesAndPayments" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_StockDenominations_StockRepository" ManuallyRouted="false" />
+        <AssociationConnector Association="payitModel.FK_ZakatProjectsTransactions_ZakatProjects" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="payitModel.PINPriority" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="payitModel.KYCRatingRule" Width="1.5" PointX="24.375" PointY="13.875" />
+        <EntityTypeShape EntityType="payitModel.KYCRatingValidation" Width="1.5" PointX="24.375" PointY="18.875" />
+        <EntityTypeShape EntityType="payitModel.KYCType" Width="1.5" PointX="3.75" PointY="30.125" />
+        <EntityTypeShape EntityType="payitModel.PayitServicesKYCType" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="payitModel.PayitServiceUserKYC" Width="1.5" PointX="3" PointY="17.375" />
+        <EntityTypeShape EntityType="payitModel.UserFavourite" Width="1.5" PointX="24.375" PointY="23.875" />
+        <EntityTypeShape EntityType="payitModel.UserTransaction" Width="1.5" PointX="6.375" PointY="27.875" />
+        <AssociationConnector Association="payitModel.FK_PayitServicesKYCTypes_KYCTypes" />
+        <AssociationConnector Association="payitModel.FK_PayitServicesKYCTypes_PayitServices" />
+        <AssociationConnector Association="payitModel.FK_PayitServiceUserKYCs_PayitServices" />
+        <EntityTypeShape EntityType="payitModel.ConfirmedTpartyTransaction" Width="1.5" PointX="3.375" PointY="22.75" />
+        <EntityTypeShape EntityType="payitModel.PayitServiceValidation" Width="1.5" PointX="3" PointY="25.875" />
+        <AssociationConnector Association="payitModel.FK_PayitServiceValidations_PayitServices" />
+        <EntityTypeShape EntityType="payitModel.CharitySubProject" Width="1.5" PointX="15" PointY="25.75" />
+        <AssociationConnector Association="payitModel.FK_CharitySubProjects_AlrahmaCharity" />
+        <AssociationConnector Association="payitModel.FK_AlrahmaCharityTransactions_CharitySubProjects" />
+        <AssociationConnector Association="payitModel.FK_ZakatProjectsTransactions_CharitySubProjects" />
+        <EntityTypeShape EntityType="payitModel.PayitComplaintsSocial" Width="1.5" PointX="17.375" PointY="25.75" />
+        <EntityTypeShape EntityType="payitModel.FactTable" Width="1.5" PointX="19.375" PointY="25.75" />
+        <EntityTypeShape EntityType="payitModel.FraudList" Width="1.5" PointX="21.375" PointY="25.75" />
+        <EntityTypeShape EntityType="payitModel.FraudWhiteList" Width="1.5" PointX="26.375" PointY="0.75" />
+        <EntityTypeShape EntityType="payitModel.ThirdpartyServiceTransaction" Width="1.5" PointX="26.375" PointY="4.75" />
+        <EntityTypeShape EntityType="payitModel.CharityTransactionsHistory" Width="1.5" PointX="26.375" PointY="9.75" />
+        <EntityTypeShape EntityType="payitModel.DPayitTPTransaction" Width="1.5" PointX="26.375" PointY="13.75" />
+        <EntityTypeShape EntityType="payitModel.Transaction" Width="1.5" PointX="26.375" PointY="22.75" />
+        <EntityTypeShape EntityType="payitModel.FraudRule" Width="1.5" PointX="26.375" PointY="18.75" />
+        <EntityTypeShape EntityType="payitModel.ServicePaymentTunnel" Width="1.5" PointX="8.375" PointY="27.75" />
+        <EntityTypeShape EntityType="payitModel.PaymentChannelTunnel" Width="1.5" PointX="26.375" PointY="26.75" />
+        <EntityTypeShape EntityType="payitModel.QucikPayMaster" Width="1.5" PointX="10.375" PointY="27.75" />
+        <EntityTypeShape EntityType="payitModel.QuickPayTransaction" Width="1.5" PointX="23.375" PointY="27.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

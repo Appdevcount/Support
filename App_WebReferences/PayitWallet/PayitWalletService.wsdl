@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PayitWalletService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IPayitWalletService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.WCF" />
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models" />
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Inputs" />
+      <xsd:import schemaLocation="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPayitWalletService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Verify_InputMessage">
+    <wsdl:part name="parameters" element="tns:Verify" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_Verify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_CreditTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreditTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_CreditTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreditTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_DebitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:DebitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_DebitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DebitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetTransactionHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionHistory" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetTransactionHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetWalletAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWalletAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetWalletAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWalletAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_SaveUserKYC_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserKYC" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_SaveUserKYC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserKYCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetProfileInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetProfileInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetTransactionsByWalletCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionsByWalletCode" />
+  </wsdl:message>
+  <wsdl:message name="IPayitWalletService_GetTransactionsByWalletCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionsByWalletCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPayitWalletService">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetData" message="tns:IPayitWalletService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetDataResponse" message="tns:IPayitWalletService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetDataUsingDataContract" message="tns:IPayitWalletService_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetDataUsingDataContractResponse" message="tns:IPayitWalletService_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/Login" message="tns:IPayitWalletService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/LoginResponse" message="tns:IPayitWalletService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/Register" message="tns:IPayitWalletService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/RegisterResponse" message="tns:IPayitWalletService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Verify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/Verify" message="tns:IPayitWalletService_Verify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/VerifyResponse" message="tns:IPayitWalletService_Verify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreditTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/CreditTransaction" message="tns:IPayitWalletService_CreditTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/CreditTransactionResponse" message="tns:IPayitWalletService_CreditTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DebitTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/DebitTransaction" message="tns:IPayitWalletService_DebitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/DebitTransactionResponse" message="tns:IPayitWalletService_DebitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetTransactionHistory" message="tns:IPayitWalletService_GetTransactionHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetTransactionHistoryResponse" message="tns:IPayitWalletService_GetTransactionHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWalletAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetWalletAccounts" message="tns:IPayitWalletService_GetWalletAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetWalletAccountsResponse" message="tns:IPayitWalletService_GetWalletAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserKYC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/SaveUserKYC" message="tns:IPayitWalletService_SaveUserKYC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/SaveUserKYCResponse" message="tns:IPayitWalletService_SaveUserKYC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetProfileInfo" message="tns:IPayitWalletService_GetProfileInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetProfileInfoResponse" message="tns:IPayitWalletService_GetProfileInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionsByWalletCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPayitWalletService/GetTransactionsByWalletCode" message="tns:IPayitWalletService_GetTransactionsByWalletCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPayitWalletService/GetTransactionsByWalletCodeResponse" message="tns:IPayitWalletService_GetTransactionsByWalletCode_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPayitWalletService" type="tns:IPayitWalletService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Verify">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Verify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/CreditTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/DebitTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionHistory">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetTransactionHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWalletAccounts">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetWalletAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserKYC">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/SaveUserKYC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileInfo">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetProfileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionsByWalletCode">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetTransactionsByWalletCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IPayitWalletService" type="tns:IPayitWalletService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IPayitWalletService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Verify">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/Verify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/CreditTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DebitTransaction">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/DebitTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionHistory">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetTransactionHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWalletAccounts">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetWalletAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserKYC">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/SaveUserKYC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileInfo">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetProfileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionsByWalletCode">
+      <soap:operation soapAction="http://tempuri.org/IPayitWalletService/GetTransactionsByWalletCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PayitWalletService">
+    <wsdl:port name="BasicHttpBinding_IPayitWalletService" binding="tns:BasicHttpBinding_IPayitWalletService">
+      <soap:address location="http://192.168.1.11/GlobalPayit/PayitWalletWCF/PayitWalletService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IPayitWalletService" binding="tns:BasicHttpsBinding_IPayitWalletService">
+      <soap:address location="https://win-9pbcumob6ap/GlobalPayit/PayitWalletWCF/PayitWalletService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

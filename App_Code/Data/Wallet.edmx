@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WalletsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SanctionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DOBDate" Type="int" />
+          <Property Name="DOBMonth" Type="int" />
+          <Property Name="DOBYear" Type="int" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="5" />
+          <Property Name="PassportNo" Type="varchar" MaxLength="50" />
+          <Property Name="NationalIdentityNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="20" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Info1" Type="varchar" MaxLength="50" />
+          <Property Name="Info2" Type="varchar" MaxLength="50" />
+          <Property Name="Info3" Type="varchar" MaxLength="50" />
+          <Property Name="Info4" Type="varchar" MaxLength="50" />
+          <Property Name="Source" Type="varchar" MaxLength="50" />
+          <Property Name="SourceDocInformation" Type="varchar" MaxLength="50" />
+          <Property Name="SourceID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WalletAccounts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WalletID" Type="bigint" />
+          <Property Name="WalletTypeID" Type="int" />
+          <Property Name="UserIdentifier" Type="bigint" />
+          <Property Name="UseCustomerLogin" Type="bit" Nullable="false" />
+          <Property Name="SMSAuthenticatedTransaction" Type="bit" />
+          <Property Name="CVVAuthentcatedTransaction" Type="varchar" MaxLength="5" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" />
+          <Property Name="Balance" Type="float" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="smalldatetime" />
+          <Property Name="Info1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info4" Type="nvarchar" MaxLength="500" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="16" />
+          <Property Name="WalletTypeCountryID" Type="int" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="50" />
+          <Property Name="isFirstLogin" Type="bit" Nullable="false" />
+          <Property Name="FirstLoginDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WalletTransactions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APPID" Type="int" />
+          <Property Name="WalletAccountID" Type="bigint" />
+          <Property Name="ProfileID" Type="bigint" />
+          <Property Name="WalletTypeID" Type="int" />
+          <Property Name="UserIdentifier" Type="bigint" />
+          <Property Name="TrackID" Type="bigint" />
+          <Property Name="TransactionType" Type="nvarchar" MaxLength="10" />
+          <Property Name="TransactionRef" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserMobile" Type="varchar" MaxLength="20" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransactionDate" Type="smalldatetime" />
+          <Property Name="PaymentService" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentServiceName" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentReference" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentAccountType" Type="nvarchar" MaxLength="30" />
+          <Property Name="PaymentStatusDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="TransactionAmount" Type="float" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+          <Property Name="TransactionCurrency" Type="nvarchar" MaxLength="5" />
+          <Property Name="TransactionStatus" Type="nvarchar" MaxLength="25" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Info1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Info2" Type="nvarchar" MaxLength="50" />
+          <Property Name="SenderName" Type="varchar" MaxLength="50" />
+          <Property Name="RecieverName" Type="varchar" MaxLength="50" />
+          <Property Name="Commission" Type="float" />
+        </EntityType>
+        <Association Name="FK_WalletTransactions_WalletAccounts">
+          <End Role="WalletAccounts" Type="Self.WalletAccounts" Multiplicity="0..1" />
+          <End Role="WalletTransactions" Type="Self.WalletTransactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WalletAccounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WalletTransactions">
+              <PropertyRef Name="WalletAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WalletsModelStoreContainer">
+          <EntitySet Name="SanctionsList" EntityType="Self.SanctionsList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WalletAccounts" EntityType="Self.WalletAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WalletTransactions" EntityType="Self.WalletTransactions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_WalletTransactions_WalletAccounts" Association="Self.FK_WalletTransactions_WalletAccounts">
+            <End Role="WalletAccounts" EntitySet="WalletAccounts" />
+            <End Role="WalletTransactions" EntitySet="WalletTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WalletsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SanctionsList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DOBDate" Type="Int32" />
+          <Property Name="DOBMonth" Type="Int32" />
+          <Property Name="DOBYear" Type="Int32" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PassportNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NationalIdentityNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Info1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Info4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SourceDocInformation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SourceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WalletAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WalletID" Type="Int64" />
+          <Property Name="WalletTypeID" Type="Int32" />
+          <Property Name="UserIdentifier" Type="Int64" />
+          <Property Name="UseCustomerLogin" Type="Boolean" Nullable="false" />
+          <Property Name="SMSAuthenticatedTransaction" Type="Boolean" />
+          <Property Name="CVVAuthentcatedTransaction" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="Currency" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Info1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="WalletTypeCountryID" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isFirstLogin" Type="Boolean" Nullable="false" />
+          <Property Name="FirstLoginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="WalletTransactions" Relationship="Self.FK_WalletTransactions_WalletAccounts" FromRole="WalletAccounts" ToRole="WalletTransactions" />
+        </EntityType>
+        <EntityType Name="WalletTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APPID" Type="Int32" />
+          <Property Name="WalletAccountID" Type="Int64" />
+          <Property Name="ProfileID" Type="Int64" />
+          <Property Name="WalletTypeID" Type="Int32" />
+          <Property Name="UserIdentifier" Type="Int64" />
+          <Property Name="TrackID" Type="Int64" />
+          <Property Name="TransactionType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionRef" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentService" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentReference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentAccountType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentStatusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="TransactionAmount" Type="Double" />
+          <Property Name="Currency" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionCurrency" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Info1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Info2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecieverName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Commission" Type="Double" />
+          <NavigationProperty Name="WalletAccount" Relationship="Self.FK_WalletTransactions_WalletAccounts" FromRole="WalletTransactions" ToRole="WalletAccounts" />
+        </EntityType>
+        <Association Name="FK_WalletTransactions_WalletAccounts">
+          <End Role="WalletAccounts" Type="Self.WalletAccount" Multiplicity="0..1" />
+          <End Role="WalletTransactions" Type="Self.WalletTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WalletAccounts">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WalletTransactions">
+              <PropertyRef Name="WalletAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WalletsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SanctionsLists" EntityType="Self.SanctionsList" />
+          <EntitySet Name="WalletAccounts" EntityType="Self.WalletAccount" />
+          <EntitySet Name="WalletTransactions" EntityType="Self.WalletTransaction" />
+          <AssociationSet Name="FK_WalletTransactions_WalletAccounts" Association="Self.FK_WalletTransactions_WalletAccounts">
+            <End Role="WalletAccounts" EntitySet="WalletAccounts" />
+            <End Role="WalletTransactions" EntitySet="WalletTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WalletsModelStoreContainer" CdmEntityContainer="WalletsEntities">
+          <EntitySetMapping Name="SanctionsLists">
+            <EntityTypeMapping TypeName="WalletsModel.SanctionsList">
+              <MappingFragment StoreEntitySet="SanctionsList">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DOBDate" ColumnName="DOBDate" />
+                <ScalarProperty Name="DOBMonth" ColumnName="DOBMonth" />
+                <ScalarProperty Name="DOBYear" ColumnName="DOBYear" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+                <ScalarProperty Name="NationalIdentityNumber" ColumnName="NationalIdentityNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="Info3" ColumnName="Info3" />
+                <ScalarProperty Name="Info4" ColumnName="Info4" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="SourceDocInformation" ColumnName="SourceDocInformation" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WalletAccounts">
+            <EntityTypeMapping TypeName="WalletsModel.WalletAccount">
+              <MappingFragment StoreEntitySet="WalletAccounts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WalletID" ColumnName="WalletID" />
+                <ScalarProperty Name="WalletTypeID" ColumnName="WalletTypeID" />
+                <ScalarProperty Name="UserIdentifier" ColumnName="UserIdentifier" />
+                <ScalarProperty Name="UseCustomerLogin" ColumnName="UseCustomerLogin" />
+                <ScalarProperty Name="SMSAuthenticatedTransaction" ColumnName="SMSAuthenticatedTransaction" />
+                <ScalarProperty Name="CVVAuthentcatedTransaction" ColumnName="CVVAuthentcatedTransaction" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="Info3" ColumnName="Info3" />
+                <ScalarProperty Name="Info4" ColumnName="Info4" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="WalletTypeCountryID" ColumnName="WalletTypeCountryID" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="isFirstLogin" ColumnName="isFirstLogin" />
+                <ScalarProperty Name="FirstLoginDate" ColumnName="FirstLoginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WalletTransactions">
+            <EntityTypeMapping TypeName="WalletsModel.WalletTransaction">
+              <MappingFragment StoreEntitySet="WalletTransactions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="WalletAccountID" ColumnName="WalletAccountID" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="WalletTypeID" ColumnName="WalletTypeID" />
+                <ScalarProperty Name="UserIdentifier" ColumnName="UserIdentifier" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="TransactionRef" ColumnName="TransactionRef" />
+                <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="PaymentService" ColumnName="PaymentService" />
+                <ScalarProperty Name="PaymentServiceName" ColumnName="PaymentServiceName" />
+                <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+                <ScalarProperty Name="PaymentAccountType" ColumnName="PaymentAccountType" />
+                <ScalarProperty Name="PaymentStatusDescription" ColumnName="PaymentStatusDescription" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TransactionAmount" ColumnName="TransactionAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="TransactionCurrency" ColumnName="TransactionCurrency" />
+                <ScalarProperty Name="TransactionStatus" ColumnName="TransactionStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Info1" ColumnName="Info1" />
+                <ScalarProperty Name="Info2" ColumnName="Info2" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="RecieverName" ColumnName="RecieverName" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

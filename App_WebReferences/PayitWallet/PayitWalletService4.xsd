@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PayitWallet.Models.Outputs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="WalletLoginDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isemailverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ismobileverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profileid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletbalance" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WalletLoginDTO" nillable="true" type="tns:WalletLoginDTO" />
+  <xs:complexType name="WalletProfileDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="appuserid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="countrycode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isemailverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ismobileverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profileid" type="xs:long" />
+      <xs:element minOccurs="0" name="rating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" type="xs:long" />
+      <xs:element minOccurs="0" name="walletaccounts" nillable="true" type="tns:ArrayOfWalletDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WalletProfileDTO" nillable="true" type="tns:WalletProfileDTO" />
+  <xs:complexType name="ArrayOfWalletDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WalletDTO" nillable="true" type="tns:WalletDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWalletDTO" nillable="true" type="tns:ArrayOfWalletDTO" />
+  <xs:complexType name="WalletDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accountnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="balance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="countrycode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletTypeCountryID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletTypeID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WalletDTO" nillable="true" type="tns:WalletDTO" />
+  <xs:complexType name="VerifyUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KYCParameters" nillable="true" type="tns:KYCParametersDTO" />
+      <xs:element minOccurs="0" name="KYCRating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="accountnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isemailverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ismobileverified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profileid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletaccounts" nillable="true" type="tns:ArrayOfWalletDTO" />
+      <xs:element minOccurs="0" name="walletbalance" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VerifyUserDTO" nillable="true" type="tns:VerifyUserDTO" />
+  <xs:complexType name="KYCParametersDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof1NoLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof2NoLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof3NoLabel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isCountryOfBirthRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isDOBRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isFirstNameRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isFullAddressRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isFullNameRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isGenderRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isIDProof1Required" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isIDProof2Required" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isIDProof3Required" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isLastNameRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isNationalityRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof1CopyRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof1DoublePaged" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof2CopyRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof2DoublePaged" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof3CopyRequired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isProof3DoublePaged" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KYCParametersDTO" nillable="true" type="tns:KYCParametersDTO" />
+  <xs:complexType name="CreditTransactionsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Balance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Userid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditTransactionsDTO" nillable="true" type="tns:CreditTransactionsDTO" />
+  <xs:complexType name="DebitTransactionsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Balance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Userid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DebitTransactionsDTO" nillable="true" type="tns:DebitTransactionsDTO" />
+  <xs:complexType name="TransactionHistoryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:ArrayOfTransactionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionHistoryDTO" nillable="true" type="tns:TransactionHistoryDTO" />
+  <xs:complexType name="ArrayOfTransactionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransactionDTO" nillable="true" type="tns:ArrayOfTransactionDTO" />
+  <xs:complexType name="TransactionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Balance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaymentStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionAmount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionCurrency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Userid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TransactionDTO" nillable="true" type="tns:TransactionDTO" />
+  <xs:complexType name="WalletAccountsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="walletaccounts" nillable="true" type="tns:ArrayOfWalletDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WalletAccountsDTO" nillable="true" type="tns:WalletAccountsDTO" />
+  <xs:complexType name="SaveKYCDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof1ImageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof1ImageURL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof1No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof2ImageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof2ImageURL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof2No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof3ImageURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof3ImageURL2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDProof3No" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KYCRating" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lastname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="profileKYCid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="walletaccounts" nillable="true" type="tns:ArrayOfWalletDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SaveKYCDTO" nillable="true" type="tns:SaveKYCDTO" />
+  <xs:complexType name="GetProfileInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KYCParameters" nillable="true" type="tns:KYCParametersDTO" />
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:WalletProfileDTO" />
+      <xs:element minOccurs="0" name="UserKYC" nillable="true" type="tns:SaveKYCDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetProfileInfoDTO" nillable="true" type="tns:GetProfileInfoDTO" />
+</xs:schema>
